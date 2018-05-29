@@ -3,17 +3,6 @@ const hooks = require('./hooks');
 describe('Sample Test', () => {
   let app;
 
-  before(() => {
-    const input = ['electron.exe', 'chromedriver.exe'];
-    return require('taskkill')(input)
-      .then(() => {
-        console.log(`Successfully terminated ${input.join(', ')}`);
-      })
-      .catch(() => {
-        console.log(`Not terminated ${input.join(', ')}`);
-      });
-  });
-
   beforeEach(() => {
     return hooks.startApp().then((startedApp) => {
       app = startedApp;
